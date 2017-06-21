@@ -1,7 +1,7 @@
 # Count
 
-This was created to manage things like z-index. Here's how we might manage
-some z-index values manually:
+This was created to manage things like `tabIndex` and `z-index`. Here's how we might manage
+some `z-index` values manually:
 
 ```elm
 layers =
@@ -47,6 +47,8 @@ In both examples, the value of `layers` is the same.
 In the second one, reordering the fields in the `type alias` causes them to be
 renumbered automatically. Adding a fifth field necessitates only swapping out
 `Count.to4` for `Count.to5`.
+
+This works just as well for `tabIndex`.
 
 ## Getting `map` involved
 
