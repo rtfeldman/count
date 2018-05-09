@@ -1,17 +1,24 @@
-module Count exposing (to2, to3, to4, to5, to6, to7, to8, to9, mapTo2, mapTo3, mapTo4, mapTo5, mapTo6, mapTo7, mapTo8, mapTo9)
+module Count exposing (mapTo2, mapTo3, mapTo4, mapTo5, mapTo6, mapTo7, mapTo8, mapTo9, to2, to3, to4, to5, to6, to7, to8, to9)
 
 {-| Functions for counting upwards from 1, and passing those numbers to other functions.
 
+
 ## Basic Counting
+
 @docs to2, to3, to4, to5, to6, to7, to8, to9
 
+
 ## Advanced Counting (Whoa. WHOA.)
+
 @docs mapTo2, mapTo3, mapTo4, mapTo5, mapTo6, mapTo7, mapTo8, mapTo9
 
+
 ## Theoretical Counting
+
 These functions are even more advanced than the Advanced Counting functions, if
 you can believe it. They're so advanced, their implementations are purely
 theoretical and therefore they have no APIs.
+
 -}
 
 -- Basic Counting --
@@ -24,13 +31,13 @@ theoretical and therefore they have no APIs.
         , menu : Int
         }
 
-
     layers : Layers
     layers =
         -- { normal = 1
         -- , menu = 2
         -- }
         Count.to2 Layers
+
 -}
 to2 : (Int -> Int -> a) -> a
 to2 fn =
@@ -45,7 +52,6 @@ to2 fn =
         , modal : Int
         }
 
-
     layers : Layers
     layers =
         -- { normal = 1
@@ -53,6 +59,7 @@ to2 fn =
         -- , modal = 3
         -- }
         Count.to3 Layers
+
 -}
 to3 : (Int -> Int -> Int -> a) -> a
 to3 fn =
@@ -68,7 +75,6 @@ to3 fn =
         , modal : Int
         }
 
-
     layers : Layers
     layers =
         -- { normal = 1
@@ -77,6 +83,7 @@ to3 fn =
         -- , modal = 4
         -- }
         Count.to4 Layers
+
 -}
 to4 : (Int -> Int -> Int -> Int -> a) -> a
 to4 fn =
@@ -93,7 +100,6 @@ to4 fn =
         , modal : Int
         }
 
-
     layers : Layers
     layers =
         -- { normal = 1
@@ -103,6 +109,7 @@ to4 fn =
         -- , modal = 5
         -- }
         Count.to5 Layers
+
 -}
 to5 : (Int -> Int -> Int -> Int -> Int -> a) -> a
 to5 fn =
@@ -120,7 +127,6 @@ to5 fn =
         , debugger : Int
         }
 
-
     layers : Layers
     layers =
         -- { normal = 1
@@ -131,6 +137,7 @@ to5 fn =
         -- , debugger = 6
         -- }
         Count.to6 Layers
+
 -}
 to6 : (Int -> Int -> Int -> Int -> Int -> Int -> a) -> a
 to6 fn =
@@ -149,7 +156,6 @@ to6 fn =
         , debugger : Int
         }
 
-
     layers : Layers
     layers =
         -- { basement = 1
@@ -161,6 +167,7 @@ to6 fn =
         -- , debugger = 7
         -- }
         Count.to7 Layers
+
 -}
 to7 : (Int -> Int -> Int -> Int -> Int -> Int -> Int -> a) -> a
 to7 fn =
@@ -180,7 +187,6 @@ to7 fn =
         , debugger : Int
         }
 
-
     layers : Layers
     layers =
         -- { subBasement = 1
@@ -193,6 +199,7 @@ to7 fn =
         -- , debugger = 8
         -- }
         Count.to8 Layers
+
 -}
 to8 : (Int -> Int -> Int -> Int -> Int -> Int -> Int -> Int -> a) -> a
 to8 fn =
@@ -213,7 +220,6 @@ to8 fn =
         , debugger : Int
         }
 
-
     layers : Layers
     layers =
         -- { beneathTheBrowserItself = 1
@@ -227,6 +233,7 @@ to8 fn =
         -- , debugger = 9
         -- }
         Count.to9 Layers
+
 -}
 to9 : (Int -> Int -> Int -> Int -> Int -> Int -> Int -> Int -> Int -> a) -> a
 to9 fn =
@@ -244,13 +251,13 @@ to9 fn =
         , menu : String
         }
 
-
     layers : Layers
     layers =
         -- { normal = "zero_indexed_0"
         -- , menu = "zero_indexed_1"
         -- }
-        Count.mapTo2 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo2 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo2 : (Int -> a) -> (a -> a -> b) -> b
 mapTo2 transform fn =
@@ -265,14 +272,14 @@ mapTo2 transform fn =
         , modal : String
         }
 
-
     layers : Layers
     layers =
         -- { normal = "zero_indexed_0"
         -- , menu = "zero_indexed_1"
         -- , modal = "zero_indexed_2"
         -- }
-        Count.mapTo3 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo3 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo3 : (Int -> a) -> (a -> a -> a -> b) -> b
 mapTo3 transform fn =
@@ -288,7 +295,6 @@ mapTo3 transform fn =
         , modal : String
         }
 
-
     layers : Layers
     layers =
         -- { normal = "zero_indexed_0"
@@ -296,7 +302,8 @@ mapTo3 transform fn =
         -- , overlay = "zero_indexed_2"
         -- , modal = "zero_indexed_3"
         -- }
-        Count.mapTo4 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo4 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo4 : (Int -> a) -> (a -> a -> a -> a -> b) -> b
 mapTo4 transform fn =
@@ -313,7 +320,6 @@ mapTo4 transform fn =
         , modal : String
         }
 
-
     layers : Layers
     layers =
         -- { normal = "zero_indexed_0"
@@ -322,7 +328,8 @@ mapTo4 transform fn =
         -- , overlay = "zero_indexed_3"
         -- , modal = "zero_indexed_4"
         -- }
-        Count.mapTo5 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo5 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo5 : (Int -> a) -> (a -> a -> a -> a -> a -> b) -> b
 mapTo5 transform fn =
@@ -340,7 +347,6 @@ mapTo5 transform fn =
         , debugger : String
         }
 
-
     layers : Layers
     layers =
         -- { normal = "zero_indexed_0"
@@ -350,7 +356,8 @@ mapTo5 transform fn =
         -- , modal = "zero_indexed_4"
         -- , debugger = "zero_indexed_5"
         -- }
-        Count.mapTo6 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo6 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo6 : (Int -> a) -> (a -> a -> a -> a -> a -> a -> b) -> b
 mapTo6 transform fn =
@@ -369,7 +376,6 @@ mapTo6 transform fn =
         , debugger : String
         }
 
-
     layers : Layers
     layers =
         -- { basement = "zero_indexed_0"
@@ -380,7 +386,8 @@ mapTo6 transform fn =
         -- , modal = "zero_indexed_5"
         -- , debugger = "zero_indexed_6"
         -- }
-        Count.mapTo7 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo7 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo7 : (Int -> a) -> (a -> a -> a -> a -> a -> a -> a -> b) -> b
 mapTo7 transform fn =
@@ -400,7 +407,6 @@ mapTo7 transform fn =
         , debugger : String
         }
 
-
     layers : Layers
     layers =
         -- { subBasement = "zero_indexed_0"
@@ -412,7 +418,8 @@ mapTo7 transform fn =
         -- , modal = "zero_indexed_6"
         -- , debugger = "zero_indexed_7"
         -- }
-        Count.mapTo8 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo8 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo8 : (Int -> a) -> (a -> a -> a -> a -> a -> a -> a -> a -> b) -> b
 mapTo8 transform fn =
@@ -433,7 +440,6 @@ mapTo8 transform fn =
         , debugger : String
         }
 
-
     layers : Layers
     layers =
         -- { beneathTheBrowserItself = "zero_indexed_0"
@@ -446,7 +452,8 @@ mapTo8 transform fn =
         -- , modal = "zero_indexed_7"
         -- , debugger = "zero_indexed_8"
         -- }
-        Count.mapTo9 (\num -> "zero_indexed_" ++ (toString (num - 1))) Layers
+        Count.mapTo9 (\num -> "zero_indexed_" ++ toString (num - 1)) Layers
+
 -}
 mapTo9 : (Int -> a) -> (a -> a -> a -> a -> a -> a -> a -> a -> a -> b) -> b
 mapTo9 transform fn =
